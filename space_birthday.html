@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Space Birthday Party</title>
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden; font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #0a0a2e, #16213e, #0f3460); height: 100vh; position: relative;">
+
+    <!-- Stars Background -->
+    <div id="stars" style="position: absolute; width: 100%; height: 100%; z-index: 1;"></div>
+
+    <!-- Moving Comets Container -->
+    <div id="comets" style="position: absolute; width: 100%; height: 100%; z-index: 2;"></div>
+
+    <!-- 3D Sun IMAGE -->
+    <img id="sun" src="images/sun-3d.png" alt="3D Sun" style="
+        position: absolute;
+        top: 10%;
+        right: 15%;
+        width: 120px;
+        height: 120px;
+        z-index: 3;
+        filter: drop-shadow(0 0 30px #ff9800);
+    ">
+
+    <!-- 3D Earth IMAGE -->
+    <img id="earth" src="images/earth-3d.png" alt="3D Earth" style="
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        width: 100px;
+        height: 100px;
+        z-index: 3;
+        filter: drop-shadow(0 0 20px #1976d2);
+    ">
+
+    <!-- 3D Mars IMAGE -->
+    <img id="mars" src="images/mars-3d.png" alt="3D Mars" style="
+        position: absolute;
+        top: 15%;
+        right: 35%;
+        width: 80px;
+        height: 80px;
+        z-index: 3;
+        filter: drop-shadow(0 0 15px #bf360c);
+    ">
+
+    <!-- 3D Jupiter IMAGE -->
+    <img id="jupiter" src="images/jupiter-3d.png" alt="3D Jupiter" style="
+        position: absolute;
+        bottom: 20%;
+        right: 20%;
+        width: 140px;
+        height: 140px;
+        z-index: 3;
+        filter: drop-shadow(0 0 25px #cd853f);
+    ">
+
+    <!-- 3D Saturn IMAGE -->
+    <img id="saturn" src="images/saturn-3d.png" alt="3D Saturn" style="
+        position: absolute;
+        top: 25%;
+        left: 45%;
+        width: 120px;
+        height: 120px;
+        z-index: 3;
+        filter: drop-shadow(0 0 20px #ff8f00);
+    ">
+
+    <!-- 3D Neptune IMAGE -->
+    <img id="neptune" src="images/neptune-3d.png" alt="3D Neptune" style="
+        position: absolute;
+        top: 55%;
+        right: 25%;
+        width: 75px;
+        height: 75px;
+        z-index: 3;
+        filter: drop-shadow(0 0 15px #1565c0);
+    ">
+
+    <!-- 3D Venus IMAGE -->
+    <img id="venus" src="images/venus-3d.png" alt="3D Venus" style="
+        position: absolute;
+        bottom: 35%;
+        left: 25%;
+        width: 85px;
+        height: 85px;
+        z-index: 3;
+        filter: drop-shadow(0 0 20px #ffb300);
+    ">
+
+    <!-- 3D Pluto IMAGE -->
+    <img id="pluto" src="images/pluto-3d.png" alt="3D Pluto" style="
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        width: 50px;
+        height: 50px;
+        z-index: 3;
+        filter: drop-shadow(0 0 10px #5d4037);
+    ">
+
+    <!-- Additional Space Elements -->
+    <!-- Comet Images -->
+    <img id="comet1" src="images/comet-3d.png" alt="3D Comet" style="
+        position: absolute;
+        top: 20%;
+        right: 40%;
+        width: 60px;
+        height: 40px;
+        z-index: 3;
+        filter: drop-shadow(0 0 15px #00bcd4);
+    ">
+
+    <img id="comet2" src="images/comet-3d.png" alt="3D Comet" style="
+        position: absolute;
+        bottom: 40%;
+        left: 35%;
+        width: 80px;
+        height: 50px;
+        z-index: 3;
+        filter: drop-shadow(0 0 20px #e91e63);
+        transform: rotate(45deg);
+    ">
+
+    <!-- Asteroid Belt -->
+    <img id="asteroid1" src="images/asteroid-3d.png" alt="3D Asteroid" style="
+        position: absolute;
+        top: 35%;
+        right: 10%;
+        width: 40px;
+        height: 40px;
+        z-index: 3;
+        filter: drop-shadow(0 0 10px #795548);
+    ">
+
+    <img id="asteroid2" src="images/asteroid-3d.png" alt="3D Asteroid" style="
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        width: 35px;
+        height: 35px;
+        z-index: 3;
+        filter: drop-shadow(0 0 8px #795548);
+    ">
+
+    <img id="asteroid3" src="images/asteroid-3d.png" alt="3D Asteroid" style="
+        position: absolute;
+        bottom: 15%;
+        right: 45%;
+        width: 45px;
+        height: 45px;
+        z-index: 3;
+        filter: drop-shadow(0 0 12px #795548);
+    ">
+
+    <!-- Space Station -->
+    <img id="space-station" src="images/space-station-3d.png" alt="3D Space Station" style="
+        position: absolute;
+        top: 45%;
+        right: 5%;
+        width: 100px;
+        height: 60px;
+        z-index: 3;
+        filter: drop-shadow(0 0 20px #9e9e9e);
+    ">
+
+    <!-- Satellite -->
+    <img id="satellite" src="images/satellite-3d.png" alt="3D Satellite" style="
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        width: 70px;
+        height: 70px;
+        z-index: 3;
+        filter: drop-shadow(0 0 15px #607d8b);
+    ">
+
+    <!-- Alien Ship -->
+    <img id="alien-ship" src="images/alien-ship-3d.png" alt="3D Alien Ship" style="
+        position: absolute;
+        bottom: 25%;
+        left: 5%;
+        width: 90px;
+        height: 60px;
+        z-index: 3;
+        filter: drop-shadow(0 0 25px #4caf50);
+    ">
+
+    <!-- Galaxy -->
+    <img id="galaxy" src="images/galaxy-3d.png" alt="3D Galaxy" style="
+        position: absolute;
+        top: 5%;
+        left: 35%;
+        width: 150px;
+        height: 150px;
+        z-index: 2;
+        filter: drop-shadow(0 0 30px #9c27b0);
+        opacity: 0.6;
+    ">
+
+    <!-- 3D Astronaut IMAGE -->
+    <img id="astronaut" src="images/astronaut-3d.png" alt="3D Astronaut" style="
+        position: absolute;
+        top: 30%;
+        right: 10%;
+        width: 150px;
+        height: 200px;
+        z-index: 4;
+        filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+    ">
+
+    <!-- 3D UFO IMAGE -->
+    <img id="ufo" src="images/ufo-3d.png" alt="3D UFO" style="
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 120px;
+        height: 80px;
+        z-index: 4;
+        filter: drop-shadow(0 0 25px rgba(255,255,255,0.4));
+    ">
+
+    <!-- 3D Rocket IMAGE -->
+    <img id="rocket" src="images/rocket-3d.png" alt="3D Rocket" style="
+        position: absolute;
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 160px;
+        z-index: 4;
+        filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+    ">
+
+    <!-- Optional: Add some space stickers -->
+    <img src="images/space-sticker-1.png" alt="Space Sticker" style="
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 60px;
+        height: 60px;
+        z-index: 2;
+        opacity: 0.7;
+    ">
+
+    <img src="images/space-sticker-2.png" alt="Space Sticker" style="
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        width: 80px;
+        height: 80px;
+        z-index: 2;
+        opacity: 0.6;
+    ">
+
+    <img src="images/star-cluster.png" alt="Star Cluster" style="
+        position: absolute;
+        bottom: 45%;
+        right: 35%;
+        width: 70px;
+        height: 70px;
+        z-index: 2;
+        opacity: 0.5;
+        filter: drop-shadow(0 0 15px #ffffff);
+    ">
+
+    <!-- Invitation Card -->
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.85);
+        
+        border: 3px solid #64b5f6;
+        border-radius: 25px;
+        padding: 35px;
+        text-align: center;
+        box-shadow: 
+            0 0 40px rgba(100, 181, 246, 0.4),
+            inset 0 0 20px rgba(255,255,255,0.1);
+        z-index: 10;
+        min-width: 380px;
+    ">
+        <h1 style="
+            background: linear-gradient(45deg, #ff4081, #40c4ff, #69f0ae, #ffeb3b, #ff4081);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease infinite;
+            font-size: 3.2em;
+            margin: 0 0 25px 0;
+            text-shadow: 0 0 30px rgba(255,255,255,0.6);
+            font-weight: bold;"
+        >🚀 BLAST OFF! 🚀</h1>
+        
+        <div style="color: white; font-size: 1.3em; line-height: 1.8; margin-bottom: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+            <p style="margin: 12px 0; font-size: 1.4em;"><strong>🌌 Welcome to the Sharvil's Space Party! 🌌</strong></p>
+            <p style="margin: 12px 0;">Join us for an out-of-this-world celebration!</p>
+            <p style="margin: 12px 0;"><strong>🗓️ Date:</strong> Sunday, Sept 21st</p>
+            <p style="margin: 12px 0;"><strong>⏰ Time:</strong> 4:30 PM - 7:00 PM</p>
+            <p style="margin: 12px 0;"><strong>📍 Location:</strong> Del Sur Neighborhood Park</p>
+            <p style="margin: 12px 0;">15820 Paseo Montenero, San Diego, CA 92127</p>
+        </div>
+
+        <!-- Action Buttons Container -->
+        <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <button id="launch-btn" onclick="launchRocket()" style="
+                background: linear-gradient(45deg, #ff4081, #40c4ff, #69f0ae);
+                background-size: 200% 200%;
+                border: none;
+                color: white;
+                font-size: 1.1em;
+                font-weight: bold;
+                padding: 15px 30px;
+                border-radius: 50px;
+                cursor: pointer;
+                box-shadow: 0 0 25px rgba(64, 196, 255, 0.6);
+                transition: all 0.3s ease;
+                animation: glow 2.5s infinite alternate, gradientMove 4s infinite;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                width: 280px;
+                white-space: nowrap;
+            ">🚀 LAUNCH ROCKET! 🚀</button>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="https://forms.gle/xxKFwXPTwjBcg56a7" target="_blank" style="text-decoration: none;">
+                    <button style="
+                        background: linear-gradient(45deg, #4caf50, #8bc34a);
+                        background-size: 200% 200%;
+                        border: none;
+                        color: white;
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        padding: 12px 25px;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+                        transition: all 0.3s ease;
+                        animation: gradientMove 4s infinite;
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                    " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 30px rgba(76, 175, 80, 0.8)'" 
+                       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(76, 175, 80, 0.5)'">
+                        ✅ RSVP NOW ✅
+                    </button>
+                </a>
+
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=/maps/place/Del%2BSur%2BNeighborhood%2BPark/data%3D!4m2!3m1!1s0x80dbf7b988bb6f89:0xf58d6422d950eee5%3Fsa%3DX%26ved%3D1t:242%26ictx%3D111&ved=2ahUKEwj5x8eiuJyPAxW8IUQIHff3I0YQ8gF6BAgaEAM&usg=AOvVaw1P5CJmTOU6u4gr4xsOHowy" target="_blank" style="text-decoration: none;">
+                    <button style="
+                        background: linear-gradient(45deg, #ff9800, #ff5722);
+                        background-size: 200% 200%;
+                        border: none;
+                        color: white;
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        padding: 12px 25px;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+                        transition: all 0.3s ease;
+                        animation: gradientMove 4s infinite;
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                    " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 30px rgba(255, 152, 0, 0.8)'" 
+                       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255, 152, 0, 0.5)'">
+                        🗺️ VIEW MAP 🗺️
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 25px rgba(64, 196, 255, 0.6); }
+            100% { box-shadow: 0 0 40px rgba(255, 64, 129, 0.9), 0 0 60px rgba(64, 196, 255, 0.4); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(180deg); }
+        }
+
+        @keyframes hover {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-15px) translateX(5px); }
+            75% { transform: translateY(-10px) translateX(-5px); }
+        }
+
+        @keyframes launch {
+            0% { transform: translateX(-50%) translateY(0) scale(1) rotate(0deg); }
+            50% { transform: translateX(-50%) translateY(-400px) scale(0.8) rotate(15deg); }
+            100% { transform: translateX(-50%) translateY(-1200px) scale(0.3) rotate(30deg); opacity: 0; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spinSlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes cometFly {
+            0% { 
+                transform: translateX(100vw) translateY(-50px) rotate(45deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateX(-200px) translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shootingStar {
+            0% { 
+                transform: translateX(100vw) translateY(0px);
+                opacity: 0;
+                box-shadow: 0 0 15px white, -80px 0 15px white, -160px 0 8px white;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateX(-200px) translateY(60vh);
+                opacity: 0;
+                box-shadow: 0 0 15px white, -80px 0 15px white, -160px 0 8px white;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+            25% { transform: translateX(-10px) translateY(-5px) rotate(90deg); }
+            50% { transform: translateX(5px) translateY(-10px) rotate(180deg); }
+            75% { transform: translateX(10px) translateY(5px) rotate(270deg); }
+        }
+
+        #launch-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(255, 64, 129, 0.9);
+        }
+
+        /* Image hover effects */
+        img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Planet specific animations */
+        #sun { animation: float 6s infinite ease-in-out, spin 20s linear infinite; }
+        #earth { animation: float 7s infinite ease-in-out; animation-delay: 0.5s; }
+        #mars { animation: hover 5s infinite ease-in-out; animation-delay: 1s; }
+        #jupiter { animation: float 8s infinite ease-in-out; animation-delay: 1.5s; }
+        #saturn { animation: hover 6s infinite ease-in-out; animation-delay: 2s; }
+        #neptune { animation: float 9s infinite ease-in-out; animation-delay: 2.5s; }
+        #venus { animation: hover 7s infinite ease-in-out; animation-delay: 3s; }
+        #pluto { animation: float 4s infinite ease-in-out; animation-delay: 3.5s; }
+
+        /* New space elements animations */
+        #comet1 { animation: hover 4s infinite ease-in-out, pulse 3s infinite; animation-delay: 0.5s; }
+        #comet2 { animation: float 5s infinite ease-in-out, pulse 4s infinite; animation-delay: 1s; }
+        #asteroid1 { animation: drift 8s infinite ease-in-out; animation-delay: 0s; }
+        #asteroid2 { animation: drift 6s infinite ease-in-out; animation-delay: 2s; }
+        #asteroid3 { animation: drift 7s infinite ease-in-out; animation-delay: 4s; }
+        #space-station { animation: hover 10s infinite ease-in-out; animation-delay: 1s; }
+        #satellite { animation: hover 3s infinite ease-in-out, spinSlow 15s linear infinite; }
+        #alien-ship { animation: hover 5s infinite ease-in-out, pulse 2s infinite; animation-delay: 1.5s; }
+        #galaxy { animation: spinSlow 40s linear infinite, pulse 6s infinite; }
+
+        /* Character animations */
+        #astronaut { animation: hover 4s infinite ease-in-out; }
+        #ufo { animation: hover 3s infinite ease-in-out, spin 15s linear infinite; }
+    </style>
+
+    <script>
+        // Create enhanced twinkling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 250; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = Math.random() * 4 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animation = `twinkle ${Math.random() * 4 + 2}s infinite`;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.boxShadow = '0 0 10px white';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create moving comets
+        function createMovingComet() {
+            const comet = document.createElement('div');
+            comet.style.position = 'absolute';
+            comet.style.width = '8px';
+            comet.style.height = '8px';
+            comet.style.backgroundColor = '#40c4ff';
+            comet.style.borderRadius = '50%';
+            comet.style.top = Math.random() * 50 + '%';
+            comet.style.right = '-50px';
+            comet.style.boxShadow = `
+                0 0 20px #40c4ff, 
+                -20px 0 15px #40c4ff, 
+                -40px 0 10px #40c4ff,
+                -60px 0 8px #64b5f6,
+                -80px 0 5px #90caf9
+            `;
+            comet.style.animation = 'cometFly 8s linear forwards';
+            comet.style.zIndex = '2';
+            document.body.appendChild(comet);
+            
+            setTimeout(() => comet.remove(), 8000);
+        }
+
+        // Enhanced launch rocket function
+        function launchRocket() {
+            const rocket = document.getElementById('rocket');
+            const button = document.getElementById('launch-btn');
+            
+            // Disable button temporarily
+            button.disabled = true;
+            button.textContent = '🚀 LAUNCHING... 🚀';
+            
+            // Launch animation
+            rocket.style.animation = 'launch 3s ease-in forwards';
+            
+            // Create launch effects
+            createLaunchEffects();
+            
+            // Reset after animation
+            setTimeout(() => {
+                rocket.style.animation = '';
+                rocket.style.transform = 'translateX(-50%)';
+                rocket.style.opacity = '1';
+                button.disabled = false;
+                button.textContent = '🚀 LAUNCH ROCKET! 🚀';
+            }, 4000);
+        }
+
+        // Create launch effects
+        function createLaunchEffects() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const spark = document.createElement('div');
+                    spark.style.position = 'absolute';
+                    spark.style.bottom = '20%';
+                    spark.style.left = '50%';
+                    spark.style.width = '6px';
+                    spark.style.height = '6px';
+                    spark.style.backgroundColor = ['#ff4444', '#ff8800', '#ffff00', '#ff4081'][Math.floor(Math.random() * 4)];
+                    spark.style.borderRadius = '50%';
+                    spark.style.transform = `translateX(-50%) translateY(${Math.random() * 80}px) translateX(${(Math.random() - 0.5) * 150}px)`;
+                    spark.style.animation = 'twinkle 1.5s ease-out forwards';
+                    spark.style.zIndex = '5';
+                    spark.style.boxShadow = '0 0 15px currentColor';
+                    document.body.appendChild(spark);
+                    
+                    setTimeout(() => spark.remove(), 1500);
+                }, i * 30);
+            }
+        }
+
+        // Create shooting stars
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.width = '4px';
+            star.style.height = '4px';
+            star.style.backgroundColor = 'white';
+            star.style.borderRadius = '50%';
+            star.style.top = Math.random() * 40 + '%';
+            star.style.right = '-100px';
+            star.style.animation = 'shootingStar 4s linear forwards';
+            star.style.zIndex = '2';
+            document.body.appendChild(star);
+            
+            setTimeout(() => star.remove(), 4000);
+        }
+
+        // Create multiple shooting stars
+        function createShootingStarBurst() {
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => createShootingStar(), i * 500);
+            }
+        }
+
+        // Initialize everything
+        createStars();
+        
+        // Set intervals for animations
+        setInterval(createShootingStar, 4000);
+        setInterval(createShootingStarBurst, 15000);
+        setInterval(createMovingComet, 6000);
+        
+        // Add sparkle effect to images on hover
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.filter += ' brightness(1.3) saturate(1.2)';
+                this.style.transition = 'filter 0.3s ease';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.filter = this.style.filter.replace(' brightness(1.3) saturate(1.2)', '');
+            });
+        });
+
+        // Handle missing images gracefully
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                console.warn('Image not found:', this.src);
+            });
+        });
+
+        // Add some random comet bursts
+        setTimeout(() => {
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    for (let i = 0; i < 2; i++) {
+                        setTimeout(() => createMovingComet(), i * 1000);
+                    }
+                }
+            }, 8000);
+        }, 3000);
+    </script>
+
+</body>
+</html>
+<style>
+/* Force transparency for invitation card with inline styles */
+div[style*="position: absolute"][style*="top: 50%"][style*="left: 50%"][style*="transform: translate(-50%, -50%)"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+</style>
